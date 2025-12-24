@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Docs | Ranasinghe Infra</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #020617; color: #f8fafc; }
+        .glass { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(12px); }
+        code { color: #38bdf8; font-family: 'Courier New', Courier, monospace; }
+        .sidebar-link:hover { color: #38bdf8; padding-left: 4px; }
+        .sidebar-link { transition: all 0.2s ease; }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <nav class="glass border-b border-slate-800 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-black italic">RANASINGHE<span class="text-sky-500">.INFRA</span></a>
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-400">
+                <a href="index.html" class="hover:text-sky-400 transition">Home</a>
+                <a href="solutions.html" class="hover:text-sky-400 transition">Solutions</a>
+                <a href="docs.html" class="text-white font-bold">Docs</a>
+                <a href="partners.html" class="hover:text-sky-400 transition">Partners</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-12">
+        <aside class="space-y-6 text-sm">
+            <div>
+                <h4 class="text-white font-bold mb-4 uppercase tracking-widest text-xs">Setup Guide</h4>
+                <ul class="text-slate-500 space-y-3">
+                    <li><a href="#" class="sidebar-link block">Prerequisites</a></li>
+                    <li><a href="#" class="sidebar-link block">Auth Configuration</a></li>
+                    <li><a href="#" class="sidebar-link block">Deployment Steps</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4 uppercase tracking-widest text-xs">Modules</h4>
+                <ul class="text-slate-500 space-y-3">
+                    <li><a href="#" class="sidebar-link block">Network v1.0</a></li>
+                    <li><a href="#" class="sidebar-link block">Database v1.2</a></li>
+                    <li><a href="#" class="sidebar-link block">EKS v2.1</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="md:col-span-3">
+            <h1 class="text-4xl font-bold mb-8 italic">Deployment <span class="text-sky-500">Manual</span></h1>
+            <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-8 space-y-6">
+                <div>
+                    <h3 class="text-white font-bold mb-2">Step 1: Configure Backend</h3>
+                    <p class="text-slate-400 text-sm mb-4">Edit the <code>providers.tf</code> file to point to your secure S3 backend for state locking.</p>
+                </div>
+                <div class="bg-slate-950 p-4 rounded-lg font-mono text-xs text-sky-400">
+                    terraform {<br/>
+                    &nbsp;&nbsp;backend "s3" {<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;bucket = "ranasinghe-infra-state"<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;key    = "enterprise/terraform.tfstate"<br/>
+                    &nbsp;&nbsp;}<br/>
+                    }
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
