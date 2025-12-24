@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Standards | Ranasinghe Infra</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #020617; color: #f8fafc; line-height: 1.8; }
+        .glass { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(12px); }
+        .security-badge { background: rgba(52, 211, 153, 0.1); border: 1px solid #34d399; color: #34d399; padding: 0.5rem 1rem; border-radius: 99px; font-size: 0.75rem; font-weight: 700; }
+    </style>
+</head>
+<body class="font-sans antialiased">
+    <main class="max-w-4xl mx-auto px-6 py-20">
+        <div class="flex justify-between items-center mb-12">
+            <h1 class="text-5xl font-black italic">Security <span class="text-emerald-400">Policy</span></h1>
+            <span class="security-badge">V1.4 AUDITED</span>
+        </div>
+
+        <section class="space-y-12">
+            <div class="glass p-8 rounded-3xl border border-slate-800">
+                <h2 class="text-xl font-bold mb-4 text-emerald-400">Our Hardening Standards</h2>
+                <ul class="space-y-4 text-slate-400">
+                    <li><strong>Encryption:</strong> All S3 buckets and RDS instances are encrypted using AWS KMS (CMKs).</li>
+                    <li><strong>Network Isolation:</strong> Zero public access to database subnets. NAT Gateway-only outbound traffic for private subnets.</li>
+                    <li><strong>IAM Polices:</strong> We strictly follow the Principle of Least Privilege (PoLP) across all 42 Terraform resources.</li>
+                </ul>
+            </div>
+
+            <div class="glass p-8 rounded-3xl border border-slate-800">
+                <h2 class="text-xl font-bold mb-4 text-emerald-400">Vulnerability Scanning</h2>
+                <p class="text-slate-400">Every release of the AWS Kit undergoes automated testing using:</p>
+                <div class="flex gap-4 mt-4 font-mono text-xs">
+                    <span class="bg-slate-950 p-2 rounded">tfsec</span>
+                    <span class="bg-slate-950 p-2 rounded">checkov</span>
+                    <span class="bg-slate-950 p-2 rounded">Snyk IaC</span>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
